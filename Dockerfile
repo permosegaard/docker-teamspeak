@@ -15,5 +15,3 @@ ADD startup.sh /root/
 RUN chmod +x /root/startup.sh
 
 ENTRYPOINT [ "/root/startup.sh" ]
-
-EXPOSE 9987/udp 30033 10011
