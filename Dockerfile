@@ -1,8 +1,9 @@
 FROM ubuntu:16.04
 
 RUN apt-get update \
-        && apt-get install -y wget bzip2 --no-install-recommends \
-        && apt-get clean && rm -r /var/lib/apt/lists/*
+        && apt-get install -y iproute2 wget bzip2 --no-install-recommends \
+        && apt-get clean \
+        && rm -r /var/lib/apt/lists/*
 
 ENV TEAMSPEAK_VERSION 3.0.12.3
 ENV TEAMSPEAK_SHA1 d74d60853e6fb41be74d2dc198e37ab776a164fa
