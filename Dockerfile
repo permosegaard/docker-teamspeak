@@ -15,7 +15,7 @@ RUN wget -O teamspeak3-server_linux-amd64.tar.bz2 http://dl.4players.de/ts/relea
         && rm teamspeak3-server_linux-amd64.tar.bz2
 
 ADD startup.sh /root/
-RUN chmod -x /root/startup.sh
+RUN chmod +x /root/startup.sh
 
 ENTRYPOINT [ "/root/startup.sh" ]
 
