@@ -1,25 +1,19 @@
 FROM ubuntu:16.04
 
-RUN apt-get update \
-        && apt-get install -y iproute2 wget bzip2 --no-install-recommends \
-        && apt-get clean \
-        && rm -r /var/lib/apt/lists/*
-
-ENV TEAMSPEAK_VERSION 3.0.12.3
-ENV TEAMSPEAK_SHA1 d74d60853e6fb41be74d2dc198e37ab776a164fa
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y --no-install-recommends \
+    iproute2 wget bzip2
+RUN apt-get clean && rm -Rf /var/lib/apt/lists/*
 
 VOLUME [ "/teamspeak" ]
 
-RUN wget -O teamspeak3-server_linux-amd64.tar.bz2 http://dl.4players.de/ts/releases/${TEAMSPEAK_VERSION}/teamspeak3-server_linux_amd64-${TEAMSPEAK_VERSION}.tar.bz2 \
-        && echo "${TEAMSPEAK_SHA1} *teamspeak3-server_linux-amd64.tar.bz2" | sha1sum -c - \
-        && tar -C /opt -xjf teamspeak3-server_linux-amd64.tar.bz2 \
-        && rm teamspeak3-server_linux-amd64.tar.bz2
+RUN wget -O teamspeak3-server_linux-amd64.tar.bz2 http://dl.4players.de/ts/releases/3.0.12.3/teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2 && \
+    echo "d74d60853e6fb41be74d2dc198e37ab776a164fa *teamspeak3-server_linux-amd64.tar.bz2" | sha1sum -c - && \
+    tar -C /opt -xjf teamspeak3-server_linux-amd64.tar.bz2 && rm teamspeak3-server_linux-amd64.tar.bz2
 
 ADD startup.sh /root/
 RUN chmod +x /root/startup.sh
 
 ENTRYPOINT [ "/root/startup.sh" ]
 
-EXPOSE 9987/udp
-EXPOSE 30033
-EXPOSE 10011
+EXPOSE 9987/udp 30033 10011
