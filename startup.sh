@@ -15,6 +15,7 @@ if [ -f /teamspeak/ts3server.ini ]
 then
 	/opt/teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh inifile="/teamspeak/ts3server.ini"
 else
+	echo -e "208.167.241.190\n208.167.241.185\n208.167.241.186\n108.61.78.147\n108.61.78.148\n108.61.78.149\n108.61.78.150" > /teamspeak/query_ip_whitelist.txt
 	/opt/teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh \
 		query_ip_whitelist="/teamspeak/query_ip_whitelist.txt" \
 		query_ip_backlist="/teamspeak/query_ip_blacklist.txt" \
