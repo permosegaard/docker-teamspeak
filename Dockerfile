@@ -1,6 +1,5 @@
 FROM ubuntu:16.04
 
-ADD startup.sh /root/
 RUN echo "\
 #!/bin/bash\
 ip route change default via 172.17.42.254\
