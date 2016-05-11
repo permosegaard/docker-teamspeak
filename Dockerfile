@@ -5,7 +5,7 @@ RUN echo "\
 #!/bin/bash\
 ip route change default via 172.17.42.254\
 /opt/teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh inifile=\"/opt/teamspeak3-server_linux_amd64/ts3server.ini\"\
-" > /root/startup.sh &&  chmod +x /root/startup.sh
+" > /root/startup.sh && chmod +x /root/startup.sh
 
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y --no-install-recommends iproute2 wget bzip2
