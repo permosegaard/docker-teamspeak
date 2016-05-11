@@ -2,10 +2,9 @@ apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get install -q -y --no-install-recommends iproute2 wget bzip2
 apt-get clean && rm -Rf /var/lib/apt/lists/*
 
-wget -O teamspeak3-server_linux-amd64.tar.bz2 http://dl.4players.de/ts/releases/3.0.12.3/teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2
-tar -C /opt -xjf teamspeak3-server_linux-amd64.tar.bz2 && rm teamspeak3-server_linux-amd64.tar.bz2
+wget -qO- http://dl.4players.de/ts/releases/3.0.12.3/teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2 | tar -xj -C /opt
 
-tee /opt/teamspeak3-server_linux_amd64/ts3server.ini <<EOF
+/opt/teamspeak3-server_linux_amd64/ts3server.ini <<EOF
 machine_id=
 default_voice_port=9987
 voice_ip=0.0.0.0
