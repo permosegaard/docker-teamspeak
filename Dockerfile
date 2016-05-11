@@ -19,4 +19,6 @@ RUN /opt/teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh \
 	inifile="ts3server.ini" \
 	createinifile=1 
 
+RUN echo -e "208.167.241.190\n208.167.241.185\n208.167.241.186\n108.61.78.147\n108.61.78.148\n108.61.78.149\n108.61.78.150" > /opt/teamspeak3-server_linux_amd64/query_ip_whitelist.txt
+
 ENTRYPOINT [ "/root/startup.sh" ]
