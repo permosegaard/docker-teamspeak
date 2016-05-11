@@ -1,6 +1,6 @@
-apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get install -q -y --no-install-recommends iproute2 wget bzip2
-apt-get clean && rm -Rf /var/lib/apt/lists/*
+export DEBIAN_FRONTEND=noninteractive
+apt-get update && apt-get install -qy iproute2 
+apt-get install -qy wget bzip2
 
 wget -qO- http://dl.4players.de/ts/releases/3.0.12.3/teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2 | tar -xj -C /opt
 
@@ -36,3 +36,5 @@ tee /opt/teamspeak3-server_linux_amd64/whitelist.txt <<EOF
 108.61.78.149
 108.61.78.150
 EOF
+
+apt-get clean && rm -Rf /var/lib/apt/lists/*
