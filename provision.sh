@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export DEBIAN_FRONTEND=noninteractive
 apt-get update && apt-get install -qy iproute2 
 apt-get install -qy wget bzip2
