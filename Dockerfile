@@ -11,4 +11,12 @@ RUN wget -O teamspeak3-server_linux-amd64.tar.bz2 http://dl.4players.de/ts/relea
 ADD startup.sh /root/
 RUN chmod +x /root/startup.sh
 
+RUN /opt/teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh \
+	query_ip_whitelist="query_ip_whitelist.txt" \
+	query_ip_backlist="query_ip_blacklist.txt" \
+	logpath="logs/" \
+	licensepath="" \
+	inifile="ts3server.ini" \
+	createinifile=1 
+
 ENTRYPOINT [ "/root/startup.sh" ]
