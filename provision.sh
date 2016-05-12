@@ -10,12 +10,12 @@ wget -qO- http://dl.4players.de/ts/releases/3.0.12.3/teamspeak3-server_linux_amd
 
 tee /server/ts3server.ini <<EOF
 machine_id=
-default_voice_port=9987
+default_voice_port=${PORT_9987}
 voice_ip=0.0.0.0
 licensepath=
-filetransfer_port=30033
+filetransfer_port=$(PORT_30033}
 filetransfer_ip=0.0.0.0
-query_port=10011
+query_port=${PORT_10011}
 query_ip=0.0.0.0
 query_ip_whitelist=whitelist.txt
 query_ip_blacklist=blacklist.txt
