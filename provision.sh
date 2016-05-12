@@ -7,7 +7,7 @@ apt-get install -qy wget bzip2
 mkdir /server/
 
 wget -qO- http://dl.4players.de/ts/releases/3.0.12.3/teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2 | tar -xj --strip-components 1 -C /server
-
+env > /environment.txt
 tee /server/ts3server.ini <<EOF
 machine_id=
 default_voice_port=${PORT_9987}
