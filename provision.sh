@@ -4,9 +4,11 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update && apt-get install -qy iproute2 
 apt-get install -qy wget bzip2
 
-wget -qO- http://dl.4players.de/ts/releases/3.0.12.3/teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2 | tar -xj -C /opt
+mkdir /server/
 
-/opt/teamspeak3-server_linux_amd64/ts3server.ini <<EOF
+wget -qO- http://dl.4players.de/ts/releases/3.0.12.3/teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2 | tar -xj -C /server
+
+tee /server/ts3server.ini <<EOF
 machine_id=
 default_voice_port=9987
 voice_ip=0.0.0.0
@@ -29,7 +31,7 @@ logappend=0
 query_skipbruteforcecheck=0
 EOF
 
-tee /opt/teamspeak3-server_linux_amd64/whitelist.txt <<EOF
+tee /server/whitelist.txt <<EOF
 208.167.241.190
 208.167.241.185
 208.167.241.186
