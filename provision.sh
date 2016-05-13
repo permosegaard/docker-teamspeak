@@ -1,7 +1,10 @@
 #!/bin/bash
 
 export DEBIAN_FRONTEND=noninteractive
-apt-get update && apt-get install -qy iproute2 
+
+echo "Europe/London" | sudo tee /etc/timezone && sudo dpkg-reconfigure tzdata
+apt-get update && apt-get install -qy iproute2
+
 apt-get install -qy wget bzip2
 
 mkdir /server/
